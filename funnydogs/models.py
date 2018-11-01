@@ -19,6 +19,13 @@ class Comment(models.Model):
 	author = models.ForeignKey(Author, on_delete=models.CASCADE)
 	entry = models.ForeignKey(Entry, on_delete=models.CASCADE)
 
+class Tag(models.Model):
+	name = models.CharField(max_length=100)
+
+class TagEntry(models.Model):
+	entry = models.ForeignKey(Entry, on_delete=models.CASCADE)
+	tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
+
 # extend models
 # add comment
 
