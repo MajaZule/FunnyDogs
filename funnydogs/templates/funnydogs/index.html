@@ -1,0 +1,9 @@
+{% if latest_entries_list %}
+    <ul>
+    {% for entry in latest_entries_list %}
+        <li><a href="/funnydogs/{{ entry.id }}/">{{entry.id}}:{{ entry.content }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No entries are available at this time.</p>
+{% endif %}
