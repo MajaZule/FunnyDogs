@@ -4,7 +4,7 @@ from funnydogs.models import Entry
 
 
 def index(request):
-	entries = Entry.objects.all()
+	entries = Entry.objects.all().order_by('-time_stamp')[:10]
 	result = ''
 
 	for entry in entries:
@@ -12,5 +12,12 @@ def index(request):
 
 	return HttpResponse(result)
 
-def second_page(request):
-	return HttpResponse('I guess this is the second page.')
+def entry(request, entry_id):
+	pass
+
+def create_entry(request):
+	return HttpResponse('Page where user creates new entries.')
+
+def personal_page(request):
+	return HttpResponse('Personal user page, where user can edit profile, browse entries, etc.')
+
